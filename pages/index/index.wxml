@@ -1,0 +1,20 @@
+<!--index.wxml-->
+<view class='msg-box'>
+  <view class='send-box'>
+    <input bindinput='changeInputVal' value='{{inputVal}}' class='input' type='text' placeholder='leave a message...' placeholder-class='ph' />
+    <button size='mini' type='primary' bindtap='addMsg'>add</button>
+  </view>
+
+  <text class='msg-info' wx:if='{{msgData.length==0}}'>No message...</text>
+
+  <view class='list-view'>
+    <view class='item' wx:for="{{msgData}}" wx:key='{{index}}'>
+      <text class='text1'>{{item.msg}}</text>
+      <!-- <button plain class='close-btn' size='mini' type='default'>delete</button> -->
+      <icon type='cancel' class='close-btn' bindtap='delMsg' data-index='{{index}}'></icon>
+    </view>
+  </view>
+
+
+</view>
+
